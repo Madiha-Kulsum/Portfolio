@@ -64,7 +64,7 @@ const Contact = () => {
   const handleDownloadResume = () => {
     // Create a downloadable resume link
     const link = document.createElement('a');
-    link.href = '/Madiha Kulsum_ Resume.pdf'; // You'll need to add your resume file to public folder
+    link.href = import.meta.env.BASE_URL + 'Madiha_Kulsum_Resume.pdf';
     link.download = 'Resume.pdf';
     link.click();
   };

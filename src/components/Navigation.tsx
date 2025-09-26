@@ -15,12 +15,15 @@ const Navigation = () => {
   ];
 
   const handleDownloadResume = () => {
-    // Create a downloadable resume link - you can replace this with actual resume file
-    const link = document.createElement('a');
-    link.href = '/Madiha Kulsum_ Resume.pdf'; // You'll need to add your resume file to public folder
-    link.download = 'Resume.pdf';
-    link.click();
-  };
+  const link = document.createElement('a');
+  // BASE_URL already includes /Portfolio/ from vite.config.js
+  link.href = `${import.meta.env.BASE_URL}Madiha_Kulsum_Resume.pdf`;
+  link.target = '_blank';   // open in new tab
+  link.download = 'Madiha_Kulsum_Resume.pdf';
+  document.body.appendChild(link);
+  link.click();
+  document.body.removeChild(link);
+};
 
   return (
     <nav className="fixed top-0 w-full z-50 bg-background/80 backdrop-blur-md border-b border-border">
@@ -37,11 +40,10 @@ const Navigation = () => {
               <Link
                 key={item.name}
                 to={item.path}
-                className={`text-sm font-medium transition-colors hover:text-primary ${
-                  location.pathname === item.path
+                className={`text-sm font-medium transition-colors hover:text-primary ${location.pathname === item.path
                     ? "text-primary"
                     : "text-muted-foreground"
-                }`}
+                  }`}
               >
                 {item.name}
               </Link>
@@ -59,7 +61,7 @@ const Navigation = () => {
               <Download size={16} />
               Resume
             </Button>
-            
+
             {/* Mobile menu button */}
             <button
               className="md:hidden"
@@ -79,11 +81,10 @@ const Navigation = () => {
                   key={item.name}
                   to={item.path}
                   onClick={() => setIsOpen(false)}
-                  className={`block px-3 py-2 text-sm font-medium transition-colors hover:text-primary ${
-                    location.pathname === item.path
+                  className={`block px-3 py-2 text-sm font-medium transition-colors hover:text-primary ${location.pathname === item.path
                       ? "text-primary"
                       : "text-muted-foreground"
-                  }`}
+                    }`}
                 >
                   {item.name}
                 </Link>
