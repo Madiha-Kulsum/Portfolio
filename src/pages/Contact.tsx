@@ -61,13 +61,14 @@ const Contact = () => {
     setIsSubmitting(false);
   };
 
-  const handleDownloadResume = () => {
-    // Create a downloadable resume link
-    const link = document.createElement('a');
-    link.href = import.meta.env.BASE_URL + 'Madiha_Kulsum_Resume.pdf';
-    link.download = 'Resume.pdf';
-    link.click();
-  };
+ const handleDownloadResume = () => {
+  const link = document.createElement('a');
+  link.href = 'https://raw.githubusercontent.com/Madiha-Kulsum/Portfolio/main/public/Madiha_Kulsum_Resume.pdf';
+  link.target = '_blank';
+  link.download = 'Madiha_Kulsum_Resume.pdf';
+  link.click();
+};
+
 
   const contactInfo = [
     {

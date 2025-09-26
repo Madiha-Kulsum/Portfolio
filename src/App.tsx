@@ -1,9 +1,8 @@
-import { useEffect } from "react";
 import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import { HashRouter, Routes, Route, useLocation } from "react-router-dom";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Navigation from "./components/Navigation";
 import Home from "./pages/Home";
 import Projects from "./pages/Projects";
@@ -13,23 +12,12 @@ import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
 
-// Component to handle redirect if hash is empty
-const HashRedirect = () => {
-  useEffect(() => {
-    if (!window.location.hash) {
-      window.location.hash = "/"; // redirect to home route
-    }
-  }, []);
-  return null;
-};
-
 const App = () => (
   <QueryClientProvider client={queryClient}>
     <TooltipProvider>
       <Toaster />
       <Sonner />
-      <HashRouter>
-        <HashRedirect /> {/* <-- Add this */}
+      <BrowserRouter basename="/Portfolio/"> {/* Keep basename */}
         <Navigation />
         <Routes>
           <Route path="/" element={<Home />} />
@@ -38,7 +26,7 @@ const App = () => (
           <Route path="/contact" element={<Contact />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
-      </HashRouter>
+      </BrowserRouter>
     </TooltipProvider>
   </QueryClientProvider>
 );

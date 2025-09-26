@@ -16,14 +16,12 @@ const Navigation = () => {
 
   const handleDownloadResume = () => {
   const link = document.createElement('a');
-  // BASE_URL already includes /Portfolio/ from vite.config.js
-  link.href = `${import.meta.env.BASE_URL}Madiha_Kulsum_Resume.pdf`;
-  link.target = '_blank';   // open in new tab
+  link.href = 'https://raw.githubusercontent.com/Madiha-Kulsum/Portfolio/main/public/Madiha_Kulsum_Resume.pdf';
+  link.target = '_blank';
   link.download = 'Madiha_Kulsum_Resume.pdf';
-  document.body.appendChild(link);
   link.click();
-  document.body.removeChild(link);
 };
+
 
   return (
     <nav className="fixed top-0 w-full z-50 bg-background/80 backdrop-blur-md border-b border-border">
