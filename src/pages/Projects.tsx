@@ -159,7 +159,7 @@ const Projects = () => {
         ))}
 
         {/* Call to Action */}
-        <div className="text-center mt-16 p-8 bg-gradient-hero rounded-lg">
+        {/* <div className="text-center mt-16 p-8 bg-gradient-hero rounded-lg">
           <h3 className="text-2xl font-bold mb-4">Interested in working together?</h3>
           <p className="text-muted-foreground mb-6">
             I'm always open to discussing new opportunities and interesting projects.
@@ -167,7 +167,7 @@ const Projects = () => {
           <Button variant="outline" size="lg" asChild>
             <Link to="/contact">Get In Touch</Link>
           </Button>
-        </div>
+        </div> */}
       </div>
     </div>
   );
