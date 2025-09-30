@@ -164,7 +164,7 @@ const Projects = () => {
           <p className="text-muted-foreground mb-6">
             I'm always open to discussing new opportunities and interesting projects.
           </p>
-          <Button size="lg" asChild>
+          <Button variant="outline" size="lg" asChild>
             <Link to="/contact">Get In Touch</Link>
           </Button>
         </div>
