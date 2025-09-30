@@ -2,6 +2,7 @@ import { ExternalLink, Github } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
+import { Link } from "react-router-dom";
 
 const Projects = () => {
   const projects = [
@@ -16,10 +17,10 @@ const Projects = () => {
           role: "React.js Developer"
         },
         {
-          title: "CarFixIt E-commerce Website", 
+          title: "CarFixIt E-commerce Website",
           description: "Built a full-featured e-commerce website for CarFixIt using React Vite. Implemented shopping cart, product catalog, and payment integration.",
           technologies: ["React.js", "Vite", "E-commerce"],
-          type: "Web Application", 
+          type: "Web Application",
           role: "Frontend Developer"
         },
         {
@@ -94,7 +95,7 @@ const Projects = () => {
             My <span className="bg-gradient-primary bg-clip-text text-transparent">Projects</span>
           </h1>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-            A collection of projects I've worked on during my professional career, academic studies, and internship. 
+            A collection of projects I've worked on during my professional career, academic studies, and internship.
             Each project represents different aspects of my development journey.
           </p>
         </div>
@@ -121,7 +122,7 @@ const Projects = () => {
                     <p className="text-muted-foreground mb-4">
                       {project.description}
                     </p>
-                    
+
                     {/* Technologies */}
                     <div className="mb-4">
                       <h4 className="font-semibold mb-2">Technologies:</h4>
@@ -163,8 +164,8 @@ const Projects = () => {
           <p className="text-muted-foreground mb-6">
             I'm always open to discussing new opportunities and interesting projects.
           </p>
-          <Button size="lg" asChild>
-            <a href="/contact">Get In Touch</a>
+          <Button variant="outline" size="lg" asChild>
+            <Link to="/contact">Get In Touch</Link>
           </Button>
         </div>
       </div>
