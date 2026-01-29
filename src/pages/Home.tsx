@@ -20,7 +20,7 @@ const Home = () => {
     {
       title: "Receiptor Mobile App",
       description: "Receipt and medicine management app with voice notifications",
-      tech: ["React Native", "Voice API", "Document Management"]
+      tech: ["React Native", "Voice API"]
     },
     {
       title: "Social Media Addiction Analysis",

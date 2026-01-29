@@ -20,7 +20,7 @@ const Projects = () => {
         {
           title: "Receiptor Mobile App",
           description: "Developed a comprehensive mobile app for managing receipts, documents, and medicines. Implemented family member management and voice notifications for medicine reminders.",
-          technologies: ["React Native", "Voice API", "Document Management", "Push Notifications"],
+          technologies: ["React Native", "Voice API", "Push Notifications"],
           type: "Mobile Application",
           role: "Mobile App Developer",
           url: "https://play.google.com/store/apps/details?id=com.receiptor&hl=en_IN"
