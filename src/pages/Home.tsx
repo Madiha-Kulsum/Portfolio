@@ -3,6 +3,7 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Link } from "react-router-dom";
 import heroImage from "@/assets/hero-bg1.jpg";
+import { useState, useEffect } from "react";
 
 const Home = () => {
   const skills = [
@@ -28,6 +29,38 @@ const Home = () => {
     }
   ];
 
+  const roles = ["React Native", "React.js"];
+  const [text, setText] = useState("");
+  const [roleIndex, setRoleIndex] = useState(0);
+  const [charIndex, setCharIndex] = useState(0);
+  const [isDeleting, setIsDeleting] = useState(false);
+
+  useEffect(() => {
+    const currentRole = roles[roleIndex];
+
+    const typingSpeed = isDeleting ? 50 : 100;
+
+    const timeout = setTimeout(() => {
+      if (!isDeleting && charIndex < currentRole.length) {
+        setText(currentRole.slice(0, charIndex + 1));
+        setCharIndex(charIndex + 1);
+      }
+      else if (!isDeleting && charIndex === currentRole.length) {
+        setTimeout(() => setIsDeleting(true), 3000);
+      }
+      else if (isDeleting && charIndex > 0) {
+        setText(currentRole.slice(0, charIndex - 1));
+        setCharIndex(charIndex - 1);
+      }
+      else if (isDeleting && charIndex === 0) {
+        setIsDeleting(false);
+        setRoleIndex((prev) => (prev + 1) % roles.length);
+      }
+    }, typingSpeed);
+
+    return () => clearTimeout(timeout);
+  }, [charIndex, isDeleting, roleIndex]);
+
   return (
     <div className="min-h-screen">
       {/* Hero Section */}
@@ -40,8 +73,9 @@ const Home = () => {
           <h1 className="text-4xl md:text-6xl font-bold mb-6">
             Hi, I'm a{" "}
             <span className="bg-gradient-primary bg-clip-text text-transparent">
-              React Native
-            </span>{" "}
+              {text}
+                <span className="ml-1 animate-pulse">|</span>
+            </span>
             Developer
           </h1>
           <p className="text-xl md:text-2xl text-muted-foreground mb-8 max-w-3xl mx-auto">
@@ -145,9 +179,9 @@ const Home = () => {
       </section>
 
       {/* Featured Projects */}
-      <section className="py-20 bg-gradient-card">
+      <section className="py-20 bg-gradient-card -mt-16">
         <div className="container mx-auto px-4">
-          <h2 className="text-3xl md:text-4xl font-bold text-center mb-12">Featured Projects</h2>
+          <h2 className="text-3xl md:text-4xl font-bold text-center mb-12 mt--22 ">Featured Projects</h2>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
             {featuredProjects.map((project, index) => (
               <Card key={index} className="shadow-card hover:shadow-primary transition-all duration-300 hover:-translate-y-1">

@@ -29,7 +29,7 @@ const Navigation = () => {
         <div className="flex justify-between items-center h-16">
           {/* Logo */}
           <Link to="/" className="text-xl font-bold text-primary">
-            Portfolio
+            Madiha Kulsum
           </Link>
 
           {/* Desktop Navigation */}

@@ -10,33 +10,45 @@ const Projects = () => {
       category: "Professional Projects (MGrid Technologies)",
       items: [
         {
-          title: "CarFixIt Admin Panel",
-          description: "Complete admin panel for car servicing platform built with React.js. Managed the entire admin dashboard with features for service management, user management, and analytics.",
-          technologies: ["React.js", "Admin Dashboard", "API Integration", "State Management"],
+          title: "SJS Web Application",
+          description: "Built a responsive and user-friendly frontend interface for the SJS web application using React and Vite. Implemented reusable components, form validation, dynamic routing, and optimized UI performance.",
+          technologies: ["React.js", "Vite", "JavaScript", "Tailwind CSS", "REST API Integration"],
           type: "Web Application",
-          role: "React.js Developer"
-        },
-        {
-          title: "CarFixIt E-commerce Website",
-          description: "Built a full-featured e-commerce website for CarFixIt using React Vite. Implemented shopping cart, product catalog, and payment integration.",
-          technologies: ["React.js", "Vite", "E-commerce"],
-          type: "Web Application",
-          role: "Frontend Developer"
-        },
-        {
-          title: "Solvix Website",
-          description: "Created a professional website using WordPress with custom themes and functionality for business requirements.",
-          technologies: ["WordPress", "Custom Themes", "PHP", "MySQL"],
-          type: "Website",
-          role: "WordPress Developer"
+          role: "Frontend Developer",
+          url: "https://demo.secondjobsearch.com/"
         },
         {
           title: "Receiptor Mobile App",
           description: "Developed a comprehensive mobile app for managing receipts, documents, and medicines. Implemented family member management and voice notifications for medicine reminders.",
           technologies: ["React Native", "Voice API", "Document Management", "Push Notifications"],
           type: "Mobile Application",
-          role: "Mobile App Developer"
-        }
+          role: "Mobile App Developer",
+          url: "https://play.google.com/store/apps/details?id=com.receiptor&hl=en_IN"
+        },
+        {
+          title: "CarFixIt Admin Panel",
+          description: "Complete admin panel for car servicing platform built with React.js. Managed the entire admin dashboard with features for service management, user management, and analytics.",
+          technologies: ["React.js", "Admin Dashboard", "API Integration", "State Management"],
+          type: "Web Application",
+          role: "React.js Developer",
+          url: "https://carfixitadminpanel.netlify.app/"
+        },
+        {
+          title: "CarFixIt E-commerce Website",
+          description: "Built a full-featured e-commerce website for CarFixIt using React Vite. Implemented shopping cart, product catalog, and payment integration.",
+          technologies: ["React.js", "Vite", "E-commerce"],
+          type: "Web Application",
+          role: "Frontend Developer",
+          url: "https://carfixitweb.netlify.app/"
+        },
+        {
+          title: "Solvix Website",
+          description: "Created a professional website using WordPress with custom themes and functionality for business requirements.",
+          technologies: ["WordPress", "Custom Themes", "PHP", "MySQL"],
+          type: "Website",
+          role: "WordPress Developer",
+          url: "https://solvixtechsolutions.com/new/"
+        },
       ]
     },
     {
@@ -140,16 +152,18 @@ const Projects = () => {
 
                     {/* Action Buttons */}
                     <div className="flex gap-3">
-                      {/* <Button variant="ghost" size="sm" className="p-0 h-auto">
-                        <ExternalLink size={16} className="mr-2" />
-                        View Details
-                      </Button> */}
-                      {/* {categoryIndex === 0 && ( // Only show GitHub for professional projects if available
-                        <Button variant="ghost" size="sm" className="p-0 h-auto">
-                          <Github size={16} className="mr-2" />
-                          Code
-                        </Button>
-                      )} */}
+                      {project.url && (
+                        <a
+                          href={project.url}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                        >
+                          <Button variant="ghost" size="sm" className="p-0 h-auto">
+                            <ExternalLink size={16} className="mr-2" />
+                            Visit Project
+                          </Button>
+                        </a>
+                      )}
                     </div>
                   </CardContent>
                 </Card>
